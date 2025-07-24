@@ -7,15 +7,15 @@ provider "aws" {
 resource "aws_vpc" "main" {
   cidr_block = var.vpc_cidr
 
-  tags = { 
-    Name = "my-vpc"
+  tags = {
+    Name = var.vpc_name
   }
 }
 
 resource "aws_subnet" "main" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = var.subnet1_cidr
-  availability_zone = "us-east-1a"
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = var.subnet1_cidr
+  availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
 
   tags = {
@@ -24,9 +24,9 @@ resource "aws_subnet" "main" {
 }
 
 resource "aws_subnet" "main2" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = var.subnet2_cidr
-  availability_zone = "us-east-1b"
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = var.subnet2_cidr
+  availability_zone       = "us-east-1b"
   map_public_ip_on_launch = true
 
   tags = {
@@ -35,9 +35,9 @@ resource "aws_subnet" "main2" {
 }
 
 resource "aws_subnet" "main3" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = var.subnet3_cidr
-  availability_zone = "us-east-1c"
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = var.subnet3_cidr
+  availability_zone       = "us-east-1c"
   map_public_ip_on_launch = true
 
   tags = {
